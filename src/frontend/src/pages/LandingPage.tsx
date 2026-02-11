@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import BrandCard from '@/components/BrandCard';
 import PricingSection from '@/components/PricingSection';
 import { useEffect } from 'react';
+import { APP_NAME } from '@/lib/branding';
 
 export default function LandingPage() {
   const navigate = useNavigate();
@@ -43,8 +44,7 @@ export default function LandingPage() {
                 />
               </div>
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-                Elite Controller
-                <span className="block text-primary mt-2">Customization</span>
+                <span className="block text-primary">{APP_NAME}</span>
               </h1>
               <p className="text-lg text-muted-foreground md:text-xl max-w-xl">
                 Professional repairs, custom paint jobs, and performance mods for your gaming controllers. 

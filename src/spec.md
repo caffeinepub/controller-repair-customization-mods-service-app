@@ -1,10 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Simplify the Controller Platform selector on the Service Request form by merging Nintendo and PC controller choices into the existing “Other” option.
+**Goal:** Rename the app to **"K's Lab repair and customization"** across branding constants, UI text, and page metadata.
 
 **Planned changes:**
-- Update the Service Request page’s Controller Platform dropdown to remove the options for “Nintendo Switch Pro”, “Nintendo Switch Joy-Con”, and “PC/Generic”.
-- Ensure the “Other” option remains available and continues to submit as `Platform: Other` in the description payload.
+- Update `frontend/src/lib/branding.ts` so `APP_NAME` is exactly "K's Lab repair and customization" and any derived titles reflect the new name.
+- Replace all user-facing occurrences of "K's Lab Customization" with "K's Lab repair and customization" in the landing page hero heading, header brand text, footer copyright line, and `frontend/index.html` `<title>`.
 
-**User-visible outcome:** On the Service Request page, users no longer see separate Nintendo or PC controller platform options and can choose “Other” instead; submitting with “Other” continues to work as before.
+**User-visible outcome:** The app consistently displays the updated name "K's Lab repair and customization" across the site header, landing hero, footer, and browser tab title.

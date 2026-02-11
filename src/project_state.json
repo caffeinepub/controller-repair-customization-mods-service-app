@@ -7,23 +7,24 @@
   "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-update-the-controller-platform-select-on-the-service-request-form-to-remove-the-separate-nintendo-and-pc-controller-options-and-treat-nintendo-controllers-and-pc-controllers-as-part-of-the-other-selection",
-      "title": "Update the Controller Platform <Select> on the Service Request form to remove the separate Nintendo and PC controller options, and treat Nintendo controllers and PC controllers as part of the \"Other\" selection.",
+      "id": "feature-update-the-single-source-of-truth-branding-constants-so-the-app-name-is-exactly-k-s-lab-repair-and-customization-and-the-computed-title-uses-that-updated-name",
+      "title": "Update the single source of truth branding constants so the app name is exactly \"K's Lab repair and customization\" and the computed title uses that updated name.",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
-    }
-  ],
-  "new_feature_requests": [
+    },
     {
-      "id": "AR-1",
-      "summary": "Update controller platform selector: remove separate Nintendo and PC controller options and include them under the 'Other' selection",
-      "reqIds": [],
-      "status": "pending"
+      "id": "feature-replace-all-user-facing-occurrences-of-the-old-app-name-currently-k-s-lab-customization-with-k-s-lab-repair-and-customization-across-the-marketing-landing-page-hero-heading-header-brand-text-footer-copyright-line-and-the-html-document-title",
+      "title": "Replace all user-facing occurrences of the old app name (currently \"K's Lab Customization\") with \"K's Lab repair and customization\" across the marketing landing page hero heading, header brand text, footer copyright line, and the HTML document <title>.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
     }
   ],
-  "projectName": "Simplify Controller Platform selector by merging Nintendo and PC into Other",
+  "new_feature_requests": [],
+  "projectName": "K's Lab repair and customization",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

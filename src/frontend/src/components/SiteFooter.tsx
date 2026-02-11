@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router';
 import { Heart } from 'lucide-react';
+import { APP_NAME } from '@/lib/branding';
 
 export default function SiteFooter() {
   const currentYear = new Date().getFullYear();
@@ -55,14 +56,14 @@ export default function SiteFooter() {
         </div>
 
         <div className="mt-8 pt-8 border-t border-border/40 text-center text-sm text-muted-foreground">
-          <p>© {currentYear} Controller Service. All rights reserved.</p>
+          <p>© {currentYear} {APP_NAME}. All rights reserved.</p>
           <p className="mt-2 flex items-center justify-center gap-1">
             Built with <Heart className="h-4 w-4 text-primary fill-primary" /> using{' '}
             <a
               href={`https://caffeine.ai/?utm_source=Caffeine-footer&utm_medium=referral&utm_content=${appIdentifier}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-primary hover:underline"
+              className="hover:text-primary transition-colors"
             >
               caffeine.ai
             </a>

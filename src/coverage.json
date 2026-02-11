@@ -1,24 +1,38 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-11T00:47:30.257Z",
+  "generatedAt": "2026-02-11T02:27:11.880Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 1,
-    "implemented": 1,
+    "total": 2,
+    "implemented": 2,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Update the Controller Platform <Select> on the Service Request form to remove the separate Nintendo and PC controller options, and treat Nintendo controllers and PC controllers as part of the \"Other\" selection.",
+        "summary": "Update the single source of truth branding constants so the app name is exactly \"K's Lab repair and customization\" and the computed title uses that updated name.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/ServiceRequestPage.tsx"
+          "frontend/src/lib/branding.ts"
         ],
         "matchedFiles": [
-          "frontend/src/pages/ServiceRequestPage.tsx"
+          "frontend/src/lib/branding.ts"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Replace all user-facing occurrences of the old app name (currently \"K's Lab Customization\") with \"K's Lab repair and customization\" across the marketing landing page hero heading, header brand text, footer copyright line, and the HTML document <title>.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/index.html",
+          "frontend/src/pages/LandingPage.tsx",
+          "frontend/src/components/SiteHeader.tsx",
+          "frontend/src/components/SiteFooter.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/index.html"
         ]
       }
     ]
@@ -28,7 +42,8 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/pages/ServiceRequestPage.tsx",
+    "frontend/index.html",
+    "frontend/src/lib/branding.ts",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

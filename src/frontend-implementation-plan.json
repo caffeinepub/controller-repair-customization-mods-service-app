@@ -1,21 +1,53 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Merge Nintendo + PC controller options into Other on Service Request form",
+  "title": "Rename app to \"K's Lab repair and customization\" across branding and metadata",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Remove Nintendo and PC controller options from the Controller Platform select and have users choose \"Other\" for those controllers.",
+      "summary": "Update the single source of truth branding constants so the app name and derived title reflect \"K's Lab repair and customization\".",
       "acceptanceCriteria": [
-        "On the Service Request page, the Controller Platform dropdown no longer shows options for \"Nintendo Switch Pro\", \"Nintendo Switch Joy-Con\", or \"PC/Generic\".",
-        "The dropdown still includes an \"Other\" option that users can select instead for Nintendo and PC controllers.",
-        "Selecting and submitting the form with platform=\"Other\" continues to work and includes \"Platform: Other\" in the submitted description payload as before."
+        "`frontend/src/lib/branding.ts` exports `APP_NAME` exactly as \"K's Lab repair and customization\".",
+        "Any derived branding string (e.g., `APP_TITLE`) reflects the updated app name without additional/old naming."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/ServiceRequestPage.tsx",
+          "path": "frontend/src/lib/branding.ts",
           "operation": "modify",
-          "description": "Update the Controller Platform <Select> option list to remove \"Nintendo Switch Pro\", \"Nintendo Switch Joy-Con\", and \"PC/Generic\", keeping \"Other\" as the catch-all selection; ensure the description formatting continues to include the selected platform (e.g., \"Platform: Other\")."
+          "description": "Update exported branding constants so `APP_NAME` is exactly \"K's Lab repair and customization\" and ensure computed `APP_TITLE` reflects the updated `APP_NAME`."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Replace all user-facing occurrences of the old app name with the updated name in the landing hero, header, footer, and HTML document title.",
+      "acceptanceCriteria": [
+        "Landing page hero heading displays \"K's Lab repair and customization\".",
+        "Header brand text displays \"K's Lab repair and customization\" on desktop sizes.",
+        "Footer copyright line displays \"K's Lab repair and customization\".",
+        "`frontend/index.html` `<title>` reflects the updated name (and does not contain \"K's Lab Customization\").",
+        "A project-wide search shows no remaining user-facing string \"K's Lab Customization\" (except where required in historical data/test fixtures, if any)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Update the HTML document <title> to use the new app name (and remove any occurrence of \"K's Lab Customization\")."
+        },
+        {
+          "path": "frontend/src/pages/LandingPage.tsx",
+          "operation": "modify",
+          "description": "Ensure the marketing landing page hero heading is sourced from `APP_NAME` (no hardcoded old name remains) so it displays \"K's Lab repair and customization\" after the branding update."
+        },
+        {
+          "path": "frontend/src/components/SiteHeader.tsx",
+          "operation": "modify",
+          "description": "Ensure the header desktop brand text is sourced from `APP_NAME` (no hardcoded old name remains) so it displays \"K's Lab repair and customization\" after the branding update."
+        },
+        {
+          "path": "frontend/src/components/SiteFooter.tsx",
+          "operation": "modify",
+          "description": "Ensure the footer copyright line is sourced from `APP_NAME` (no hardcoded old name remains) so it displays \"K's Lab repair and customization\" after the branding update."
         }
       ]
     }

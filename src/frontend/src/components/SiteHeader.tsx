@@ -5,6 +5,7 @@ import { useInternetIdentity } from '@/hooks/useInternetIdentity';
 import { useIsCallerAdmin } from '@/hooks/useQueries';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import { APP_NAME } from '@/lib/branding';
 
 export default function SiteHeader() {
   const { identity } = useInternetIdentity();
@@ -44,7 +45,7 @@ export default function SiteHeader() {
               alt="Logo" 
               className="h-10 w-10"
             />
-            <span className="font-bold text-lg hidden sm:inline">Controller Service</span>
+            <span className="font-bold text-lg hidden sm:inline">{APP_NAME}</span>
           </Link>
 
           {/* Desktop Navigation */}

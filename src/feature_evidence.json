@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-controller-platform-select-on-the-service-request-form-to-remove-the-separate-nintendo-and-pc-controller-options-and-treat-nintendo-controllers-and-pc-controllers-as-part-of-the-other-selection",
-      "featureTitle": "Update the Controller Platform <Select> on the Service Request form to remove the separate Nintendo and PC controller options, and treat Nintendo controllers and PC controllers as part of the \"Other\" selection.",
+      "featureId": "feature-update-the-single-source-of-truth-branding-constants-so-the-app-name-is-exactly-k-s-lab-repair-and-customization-and-the-computed-title-uses-that-updated-name",
+      "featureTitle": "Update the single source of truth branding constants so the app name is exactly \"K's Lab repair and customization\" and the computed title uses that updated name.",
       "files": [
-        "frontend/src/pages/ServiceRequestPage.tsx"
+        "frontend/src/lib/branding.ts"
       ],
       "components": [
         "authorization@4.0.0",
@@ -17,6 +17,25 @@
       ],
       "testIds": [
         "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-replace-all-user-facing-occurrences-of-the-old-app-name-currently-k-s-lab-customization-with-k-s-lab-repair-and-customization-across-the-marketing-landing-page-hero-heading-header-brand-text-footer-copyright-line-and-the-html-document-title",
+      "featureTitle": "Replace all user-facing occurrences of the old app name (currently \"K's Lab Customization\") with \"K's Lab repair and customization\" across the marketing landing page hero heading, header brand text, footer copyright line, and the HTML document <title>.",
+      "files": [
+        "frontend/index.html"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
       ],
       "confidence": "high"
     }
