@@ -1,40 +1,16 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "Controller repair/mod service app: update service pricing list, remove hydro dip finish option, and implement a selectable service list with calculated total pricing.",
+  "summary": "New project",
   "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-update-the-public-pricing-section-to-use-the-exact-service-names-and-prices-provided-by-the-user-no-ranges-grouped-under-the-existing-three-categories-repairs-customization-performance-mods-and-remove-the-hydro-dip-finish-line-item",
-      "title": "Update the public Pricing section to use the exact service names and prices provided by the user (no ranges), grouped under the existing three categories (Repairs, Customization, Performance Mods), and remove the \"Hydro dip finish\" line item.",
+      "id": "feature-update-the-controller-platform-select-on-the-service-request-form-to-remove-the-separate-nintendo-and-pc-controller-options-and-treat-nintendo-controllers-and-pc-controllers-as-part-of-the-other-selection",
+      "title": "Update the Controller Platform <Select> on the Service Request form to remove the separate Nintendo and PC controller options, and treat Nintendo controllers and PC controllers as part of the \"Other\" selection.",
       "reqIds": [
         "REQ-1"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-a-selectable-service-list-to-the-service-request-form-that-lets-customers-choose-one-or-more-services-from-the-same-updated-pricing-list-excluding-hydro-dip-finish-and-shows-a-live-updating-calculated-total",
-      "title": "Add a selectable service list to the Service Request form that lets customers choose one or more services from the same updated pricing list (excluding \"Hydro dip finish\") and shows a live-updating calculated total.",
-      "reqIds": [
-        "REQ-2"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-include-controller-cleaning-as-an-available-service-option-in-the-service-request-form-and-ensure-the-calculated-total-ui-clearly-handles-it-without-breaking-totals",
-      "title": "Include \"Controller cleaning\" as an available service option in the Service Request form and ensure the calculated-total UI clearly handles it without breaking totals.",
-      "reqIds": [
-        "REQ-3"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-when-submitting-a-service-request-populate-the-request-s-stored-price-estimate-with-the-calculated-total-as-a-formatted-string-and-include-the-list-of-selected-services-in-the-submitted-description-so-admins-can-see-what-was-selected",
-      "title": "When submitting a service request, populate the request's stored price estimate with the calculated total (as a formatted string) and include the list of selected services in the submitted description so admins can see what was selected.",
-      "reqIds": [
-        "REQ-4"
       ],
       "version": 1
     }
@@ -42,30 +18,12 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Update service prices to the specified list (drift repair 5, button replacement 5, shell/housing 10, connectivity 10, trigger repair 15, custom paint 15, LED mods 20, custom button set 15, full custom build 55, performance hair triggers 15, back button 20, precision thumbsticks 20, full performance build 65).",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-2",
-      "summary": "Remove 'hydro dip finish' from the pricing/services list.",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-3",
-      "summary": "Add 'controller cleaning' as a service (price TBD).",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-4",
-      "summary": "Implement a calculated pricing system that updates the total based on selected services (option 3).",
+      "summary": "Update controller platform selector: remove separate Nintendo and PC controller options and include them under the 'Other' selection",
       "reqIds": [],
       "status": "pending"
     }
   ],
-  "projectName": "Update service prices, remove hydro dip, and add calculated service selection total",
+  "projectName": "Simplify Controller Platform selector by merging Nintendo and PC into Other",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

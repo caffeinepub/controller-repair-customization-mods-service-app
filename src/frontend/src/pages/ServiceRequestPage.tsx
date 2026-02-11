@@ -31,6 +31,8 @@ export default function ServiceRequestPage() {
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const calculatedTotal = calculateTotal(selectedServices);
+  const hasControllerCleaning = selectedServices.includes('Controller cleaning');
+  const totalLabel = hasControllerCleaning ? 'Subtotal:' : 'Estimated price:';
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -188,9 +190,6 @@ export default function ServiceRequestPage() {
                 <SelectItem value="Xbox One">Xbox One</SelectItem>
                 <SelectItem value="PlayStation 5">PlayStation 5</SelectItem>
                 <SelectItem value="PlayStation 4">PlayStation 4</SelectItem>
-                <SelectItem value="Nintendo Switch Pro">Nintendo Switch Pro</SelectItem>
-                <SelectItem value="Nintendo Switch Joy-Con">Nintendo Switch Joy-Con</SelectItem>
-                <SelectItem value="PC/Generic">PC/Generic</SelectItem>
                 <SelectItem value="Other">Other</SelectItem>
               </SelectContent>
             </Select>
@@ -210,7 +209,7 @@ export default function ServiceRequestPage() {
                 {selectedServices.length > 0 && (
                   <div className="mt-6 pt-4 border-t border-border">
                     <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium">Estimated Total:</span>
+                      <span className="text-sm font-medium">{totalLabel}</span>
                       <span className="text-2xl font-bold text-primary">
                         ${calculatedTotal}
                       </span>

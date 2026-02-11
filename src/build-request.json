@@ -1,95 +1,46 @@
 {
   "kind": "build_request",
-  "title": "Update service prices, remove hydro dip, and add calculated service selection total",
+  "title": "Simplify Controller Platform selector by merging Nintendo and PC into Other",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Update the public Pricing section to use the exact service names and prices provided by the user (no ranges), grouped under the existing three categories (Repairs, Customization, Performance Mods), and remove the \"Hydro dip finish\" line item.",
+      "text": "Update the Controller Platform <Select> on the Service Request form to remove the separate Nintendo and PC controller options, and treat Nintendo controllers and PC controllers as part of the \"Other\" selection.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-1"
         ],
         "quotes": [
-          "the analog stick drift repair is 5 button replacement is 5 shell and housing is 10 connectivity issues is 10 trigger repair 15        custom paint is 15 led lighting mods is 20 custom button set is 15  full custom build is 55         performance hair triggers are 15 back button is 20 precision thumbs sticks are 20 full performenec is 65      also remove hydro dip finish"
+          "on the controller platform select can you remove the Nintendo controllers and PC controllers and just let them be inculed in the other selection"
         ]
       },
       "acceptanceCriteria": [
-        "On the Landing page Pricing section, the following prices are shown as exact values (e.g., \"$5\"), not ranges: Analog stick drift repair $5; Button replacement $5; Shell and housing $10; Connectivity issues $10; Trigger repair $15; Custom paint $15; LED lighting mods $20; Custom button set $15; Full custom build $55; Performance hair triggers $15; Back button $20; Precision thumbsticks $20; Full performance $65.",
-        "\"Hydro dip finish\" does not appear anywhere in the Pricing section.",
-        "The existing three-card layout (Repairs / Customization / Performance Mods) remains intact."
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "text": "Add a selectable service list to the Service Request form that lets customers choose one or more services from the same updated pricing list (excluding \"Hydro dip finish\") and shows a live-updating calculated total.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-2"
-        ],
-        "quotes": [
-          "3"
-        ]
-      },
-      "acceptanceCriteria": [
-        "The Service Request page includes a new section with selectable items (e.g., checkboxes/toggles) for the priced services: Analog stick drift repair ($5), Button replacement ($5), Shell and housing ($10), Connectivity issues ($10), Trigger repair ($15), Custom paint ($15), LED lighting mods ($20), Custom button set ($15), Full custom build ($55), Performance hair triggers ($15), Back button ($20), Precision thumbsticks ($20), Full performance ($65).",
-        "Selecting/deselecting services updates a visible \"Total\" amount immediately and correctly.",
-        "\"Hydro dip finish\" is not present as a selectable option.",
-        "If no priced services are selected, the displayed total is $0 (or equivalent clear zero state)."
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "text": "Include \"Controller cleaning\" as an available service option in the Service Request form and ensure the calculated-total UI clearly handles it without breaking totals.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "and we also clean controllers"
-        ]
-      },
-      "acceptanceCriteria": [
-        "The Service Request form includes a selectable option for \"Controller cleaning\".",
-        "The UI clearly indicates that \"Controller cleaning\" does not have a specified price (e.g., \"Price TBD\" / \"Quoted after inspection\") and it is not added into the numeric total unless a price is explicitly defined in code.",
-        "Selecting/deselecting \"Controller cleaning\" does not cause errors and does not incorrectly change the numeric total."
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "text": "When submitting a service request, populate the request's stored price estimate with the calculated total (as a formatted string) and include the list of selected services in the submitted description so admins can see what was selected.",
-      "target": "both",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "add all of tht"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Submitting a request with selected priced services sends a non-null priceEstimate value to the backend createServiceRequest call (e.g., \"$30\").",
-        "The submitted request description includes a readable list of the selected services (including \"Controller cleaning\" if selected) in addition to the user-entered description content.",
-        "The Status Lookup page and Admin Request Detail page display the stored price estimate as they did before, now showing the submitted calculated estimate when present."
+        "On the Service Request page, the Controller Platform dropdown no longer shows options for \"Nintendo Switch Pro\", \"Nintendo Switch Joy-Con\", or \"PC/Generic\".",
+        "The dropdown still includes an \"Other\" option that users can select instead for Nintendo and PC controllers.",
+        "Selecting and submitting the form with platform=\"Other\" continues to work and includes \"Platform: Other\" in the submitted description payload as before."
       ]
     }
   ],
   "constraints": [
-    "Do not edit files under frontend/src/components/ui or any paths listed as immutable in SYSTEM_CONTEXT.",
-    "Backend must remain a single Motoko actor in backend/main.mo; only add migration code if a stable-state schema change is required (avoid if possible).",
-    "Use English for any user-facing text."
+    "Do not modify any files under frontend/src/components/ui (read-only shadcn components)."
   ],
   "nonGoals": [
-    "Add payment checkout or invoicing.",
-    "Add third-party authentication providers (only Internet Identity is supported).",
-    "Implement real-time updates (no WebSockets).",
-    "Persist uploaded reference images to the backend (they remain client-side only)."
+    "Adding new backend fields or changing the backend ServiceRequest schema.",
+    "Adding new platform-specific logic beyond adjusting the dropdown options."
   ],
   "imageRequirements": {
     "required": [],
     "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
   }
 }

@@ -2,11 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-public-pricing-section-to-use-the-exact-service-names-and-prices-provided-by-the-user-no-ranges-grouped-under-the-existing-three-categories-repairs-customization-performance-mods-and-remove-the-hydro-dip-finish-line-item",
-      "featureTitle": "Update the public Pricing section to use the exact service names and prices provided by the user (no ranges), grouped under the existing three categories (Repairs, Customization, Performance Mods), and remove the \"Hydro dip finish\" line item.",
+      "featureId": "feature-update-the-controller-platform-select-on-the-service-request-form-to-remove-the-separate-nintendo-and-pc-controller-options-and-treat-nintendo-controllers-and-pc-controllers-as-part-of-the-other-selection",
+      "featureTitle": "Update the Controller Platform <Select> on the Service Request form to remove the separate Nintendo and PC controller options, and treat Nintendo controllers and PC controllers as part of the \"Other\" selection.",
       "files": [
-        "frontend/src/components/PricingSection.tsx",
-        "frontend/src/lib/servicesCatalog.ts"
+        "frontend/src/pages/ServiceRequestPage.tsx"
       ],
       "components": [
         "authorization@4.0.0",
@@ -18,69 +17,6 @@
       ],
       "testIds": [
         "REQ-1"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-a-selectable-service-list-to-the-service-request-form-that-lets-customers-choose-one-or-more-services-from-the-same-updated-pricing-list-excluding-hydro-dip-finish-and-shows-a-live-updating-calculated-total",
-      "featureTitle": "Add a selectable service list to the Service Request form that lets customers choose one or more services from the same updated pricing list (excluding \"Hydro dip finish\") and shows a live-updating calculated total.",
-      "files": [
-        "frontend/src/components/ServiceSelectionList.tsx",
-        "frontend/src/pages/ServiceRequestPage.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-2"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-include-controller-cleaning-as-an-available-service-option-in-the-service-request-form-and-ensure-the-calculated-total-ui-clearly-handles-it-without-breaking-totals",
-      "featureTitle": "Include \"Controller cleaning\" as an available service option in the Service Request form and ensure the calculated-total UI clearly handles it without breaking totals.",
-      "files": [
-        "frontend/src/components/ServiceSelectionList.tsx",
-        "frontend/src/lib/servicesCatalog.ts",
-        "frontend/src/pages/ServiceRequestPage.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-3"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-when-submitting-a-service-request-populate-the-request-s-stored-price-estimate-with-the-calculated-total-as-a-formatted-string-and-include-the-list-of-selected-services-in-the-submitted-description-so-admins-can-see-what-was-selected",
-      "featureTitle": "When submitting a service request, populate the request's stored price estimate with the calculated total (as a formatted string) and include the list of selected services in the submitted description so admins can see what was selected.",
-      "files": [
-        "frontend/src/hooks/useQueries.ts",
-        "frontend/src/pages/ServiceRequestPage.tsx",
-        "frontend/src/pages/StatusLookupPage.tsx",
-        "frontend/src/pages/admin/AdminRequestDetailPage.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-4"
       ],
       "confidence": "high"
     }
