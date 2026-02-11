@@ -1,2 +1,3 @@
-# controller-repair-customization-mods-service-app
-Exported from Caffeine project: Update service prices, remove hydro dip, and add calculated service selection total
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

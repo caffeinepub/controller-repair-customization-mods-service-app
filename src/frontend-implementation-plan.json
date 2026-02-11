@@ -1,0 +1,107 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Update pricing list and add calculated service-selection totals to service requests",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Update Landing page Pricing section to exact service names/prices under the existing three categories and remove Hydro dip finish.",
+      "acceptanceCriteria": [
+        "On the Landing page Pricing section, the following prices are shown as exact values (e.g., \"$5\"), not ranges: Analog stick drift repair $5; Button replacement $5; Shell and housing $10; Connectivity issues $10; Trigger repair $15; Custom paint $15; LED lighting mods $20; Custom button set $15; Full custom build $55; Performance hair triggers $15; Back button $20; Precision thumbsticks $20; Full performance $65.",
+        "\"Hydro dip finish\" does not appear anywhere in the Pricing section.",
+        "The existing three-card layout (Repairs / Customization / Performance Mods) remains intact."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/lib/servicesCatalog.ts",
+          "operation": "create",
+          "description": "Create a shared service catalog/constants module defining the three Pricing categories (Repairs, Customization, Performance Mods) with the exact user-provided service names and exact prices, explicitly excluding \"Hydro dip finish\"."
+        },
+        {
+          "path": "frontend/src/components/PricingSection.tsx",
+          "operation": "modify",
+          "description": "Refactor PricingSection to render from the shared catalog in frontend/src/lib/servicesCatalog.ts so displayed items match the exact names/prices and the three-card layout remains intact; ensure \"Hydro dip finish\" is not rendered."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Add selectable priced services to the Service Request form and show a live-updating calculated total.",
+      "acceptanceCriteria": [
+        "The Service Request page includes a new section with selectable items (e.g., checkboxes/toggles) for the priced services: Analog stick drift repair ($5), Button replacement ($5), Shell and housing ($10), Connectivity issues ($10), Trigger repair ($15), Custom paint ($15), LED lighting mods ($20), Custom button set ($15), Full custom build ($55), Performance hair triggers ($15), Back button ($20), Precision thumbsticks ($20), Full performance ($65).",
+        "Selecting/deselecting services updates a visible \"Total\" amount immediately and correctly.",
+        "\"Hydro dip finish\" is not present as a selectable option.",
+        "If no priced services are selected, the displayed total is $0 (or equivalent clear zero state)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ServiceSelectionList.tsx",
+          "operation": "create",
+          "description": "Create a reusable ServiceSelectionList component that renders selectable services from frontend/src/lib/servicesCatalog.ts and emits selection changes; use existing shadcn-ui primitives (e.g., checkbox/toggle patterns) for consistent UI. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/ServiceRequestPage.tsx",
+          "operation": "modify",
+          "description": "Add a new selectable services section to the form using ServiceSelectionList; maintain state for selected services and compute a live numeric total from priced items only; display a clear \"Total\" formatted as USD currency with a zero state when nothing priced is selected."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Add \"Controller cleaning\" as a selectable Service Request option and ensure totals handle it as price-unset.",
+      "acceptanceCriteria": [
+        "The Service Request form includes a selectable option for \"Controller cleaning\".",
+        "The UI clearly indicates that \"Controller cleaning\" does not have a specified price (e.g., \"Price TBD\" / \"Quoted after inspection\") and it is not added into the numeric total unless a price is explicitly defined in code.",
+        "Selecting/deselecting \"Controller cleaning\" does not cause errors and does not incorrectly change the numeric total."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/lib/servicesCatalog.ts",
+          "operation": "modify",
+          "description": "Extend the shared service catalog to include a non-priced service option for \"Controller cleaning\" (e.g., price undefined/null with a UI label like \"Quoted after inspection\"), ensuring it is available for the Service Request form but not included in priced totals."
+        },
+        {
+          "path": "frontend/src/components/ServiceSelectionList.tsx",
+          "operation": "modify",
+          "description": "Update ServiceSelectionList to render and clearly label non-priced services (like \"Controller cleaning\") as \"Price TBD\"/\"Quoted after inspection\" and ensure selection does not affect the numeric total calculation. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/ServiceRequestPage.tsx",
+          "operation": "modify",
+          "description": "Wire \"Controller cleaning\" into the selectable services state and ensure total calculation ignores non-priced selections while remaining stable and error-free."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Submit calculated total as the stored estimate and include selected services in the submitted description; ensure estimate continues displaying in Status Lookup and Admin detail views.",
+      "acceptanceCriteria": [
+        "Submitting a request with selected priced services sends a non-null priceEstimate value to the backend createServiceRequest call (e.g., \"$30\").",
+        "The submitted request description includes a readable list of the selected services (including \"Controller cleaning\" if selected) in addition to the user-entered description content.",
+        "The Status Lookup page and Admin Request Detail page display the stored price estimate as they did before, now showing the submitted calculated estimate when present."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Update the create-service-request React Query mutation to call the current backend createServiceRequest signature (including servicesRequested and totalPriceEstimate), and adjust the mutation input type accordingly."
+        },
+        {
+          "path": "frontend/src/pages/ServiceRequestPage.tsx",
+          "operation": "modify",
+          "description": "On submit, format the calculated priced-services total as a currency string and pass it as the request's stored estimate field to the createServiceRequest call; append a readable list of selected services to the submitted description (including \"Controller cleaning\" if selected) while preserving the user-entered description text."
+        },
+        {
+          "path": "frontend/src/pages/StatusLookupPage.tsx",
+          "operation": "modify",
+          "description": "Ensure the customer-facing request details display the stored estimate consistently by showing the calculated/submitted estimate when present (using the returned request estimate field(s) as appropriate) without changing existing layout behavior."
+        },
+        {
+          "path": "frontend/src/pages/admin/AdminRequestDetailPage.tsx",
+          "operation": "modify",
+          "description": "Ensure the admin request detail view continues to display the stored estimate as before, now reflecting the submitted calculated estimate when present (e.g., initialize/derive the displayed estimate from the request’s stored estimate field(s) without breaking the existing update flow)."
+        }
+      ]
+    }
+  ]
+}
