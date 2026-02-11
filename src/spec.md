@@ -1,10 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Rename the app to **"K's Lab repair and customization"** across branding constants, UI text, and page metadata.
+**Goal:** Replace the app’s current logo everywhere with a resized asset set generated from the uploaded “Tech Repair Logo with Blue and Gray.png”, including proper favicon, Apple touch icon, and social preview support.
 
 **Planned changes:**
-- Update `frontend/src/lib/branding.ts` so `APP_NAME` is exactly "K's Lab repair and customization" and any derived titles reflect the new name.
-- Replace all user-facing occurrences of "K's Lab Customization" with "K's Lab repair and customization" in the landing page hero heading, header brand text, footer copyright line, and `frontend/index.html` `<title>`.
+- Generate a complete set of resized logo assets (UI logo, favicons, apple touch icon, Open Graph image) from the uploaded logo, ensuring centered placement, no distortion, and padding for small-size clarity.
+- Update in-app logo references to use the new generated brand logo asset (at minimum in SiteHeader and LandingPage hero), removing usage of `/assets/generated/controller-logo.dim_512x512.png` for branding.
+- Update `frontend/index.html` head tags to reference the new favicon assets, apple-touch-icon, and Open Graph social preview image.
 
-**User-visible outcome:** The app consistently displays the updated name "K's Lab repair and customization" across the site header, landing hero, footer, and browser tab title.
+**User-visible outcome:** The app shows the new “K’s Lab tech repair” logo in the header and landing hero, and browsers/social shares use the updated favicon and preview image.

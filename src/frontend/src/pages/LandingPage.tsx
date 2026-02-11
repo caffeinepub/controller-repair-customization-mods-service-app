@@ -38,8 +38,8 @@ export default function LandingPage() {
             <div className="space-y-6">
               <div className="inline-block">
                 <img 
-                  src="/assets/generated/controller-logo.dim_512x512.png" 
-                  alt="Controller Service Logo" 
+                  src="/assets/generated/kslab-logo.dim_512x512.png" 
+                  alt="K's Lab Logo" 
                   className="h-20 w-20 md:h-24 md:w-24"
                 />
               </div>

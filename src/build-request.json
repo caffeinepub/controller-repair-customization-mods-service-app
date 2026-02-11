@@ -1,62 +1,94 @@
 {
   "kind": "build_request",
-  "title": "Rename app to \"K's Lab repair and customization\" across branding and metadata",
+  "title": "Replace app logo everywhere with uploaded image (resized)",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Update the single source of truth branding constants so the app name is exactly \"K's Lab repair and customization\" and the computed title uses that updated name.",
+      "text": "Create resized logo asset set from the uploaded image \"Tech Repair Logo with Blue and Gray.png\" for use across the app (UI logo, favicon, and social preview), ensuring the logo is centered, not distorted, and has appropriate padding so it renders well at small sizes.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-3",
-          "msg-5"
+          "msg-1"
         ],
         "quotes": [
-          "can you change the app name to K's Lab repair and customization",
-          "yes"
+          "I want to change the logo for the app",
+          "yu should resize it for the app",
+          "1 yes 2 yes and 3 yes"
         ]
       },
       "acceptanceCriteria": [
-        "`frontend/src/lib/branding.ts` exports `APP_NAME` exactly as \"K's Lab repair and customization\".",
-        "Any derived branding string (e.g., `APP_TITLE`) reflects the updated app name without additional/old naming."
+        "New logo image files exist under frontend/public/assets/generated with the filenames specified in imageRequirements.required.",
+        "All generated logo assets are square where applicable, visually centered, and do not appear stretched.",
+        "Small-size assets (16x16, 32x32) remain recognizable with simplified/clean edges (no accidental cropping)."
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Replace all user-facing occurrences of the old app name (currently \"K's Lab Customization\") with \"K's Lab repair and customization\" across the marketing landing page hero heading, header brand text, footer copyright line, and the HTML document <title>.",
+      "text": "Replace the current in-app logo usage (currently using \"/assets/generated/controller-logo.dim_512x512.png\") with the new generated logo asset everywhere it appears in the UI (at minimum: SiteHeader and LandingPage hero).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-3",
-          "msg-5"
+          "msg-1"
         ],
         "quotes": [
-          "can you change the app name to K's Lab repair and customization",
-          "yes"
+          "I want to change the logo for the app",
+          "1 yes 2 yes and 3 yes"
         ]
       },
       "acceptanceCriteria": [
-        "Landing page hero heading displays \"K's Lab repair and customization\".",
-        "Header brand text displays \"K's Lab repair and customization\" on desktop sizes.",
-        "Footer copyright line displays \"K's Lab repair and customization\".",
-        "`frontend/index.html` `<title>` reflects the updated name (and does not contain \"K's Lab Customization\").",
-        "A project-wide search shows no remaining user-facing string \"K's Lab Customization\" (except where required in historical data/test fixtures, if any)."
+        "Header logo displays the new logo on desktop and mobile header states.",
+        "Landing page hero logo displays the new logo.",
+        "No remaining references to \"/assets/generated/controller-logo.dim_512x512.png\" are used for the brand logo in the header/hero after the update."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Update the HTML head to use the new logo assets for browser/favicon and add an Open Graph social preview image using the generated social preview asset.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "1 yes 2 yes and 3 yes"
+        ]
+      },
+      "acceptanceCriteria": [
+        "frontend/index.html includes favicon link tags pointing to the generated 16x16 and 32x32 assets.",
+        "frontend/index.html includes an apple-touch-icon link pointing to the generated 180x180 asset.",
+        "frontend/index.html includes Open Graph image metadata referencing the generated 1200x630 asset."
       ]
     }
   ],
   "constraints": [
-    "Use English for any user-facing text.",
-    "Do not edit files under `frontend/src/components/ui` (compose existing UI components instead).",
-    "Do not modify immutable frontend hook files listed in SYSTEM_CONTEXT (e.g., `frontend/src/hooks/useInternetIdentity.ts[x]`, `frontend/src/hooks/useActor.ts`, `frontend/src/main.tsx`)."
+    "Do not edit any files under frontend/src/components/ui or any paths listed in frontend.immutablePaths.",
+    "Keep all backend logic unchanged (logo update is frontend/static-asset only).",
+    "Store generated images as static assets under frontend/public/assets/generated (do not serve images through the backend)."
   ],
   "nonGoals": [
-    "No backend (Motoko) schema, state, or API changes.",
-    "No changes to authentication/Internet Identity flow.",
-    "No redesign of the UI beyond updating the name/branding text."
+    "Changing the app name, subtitle, or other copy.",
+    "Redesigning the app UI beyond what is necessary to display the updated logo.",
+    "Adding new authentication methods or any backend schema/state changes."
   ],
   "imageRequirements": {
-    "required": [],
+    "required": [
+      "Square brand logo with transparent background, centered with comfortable padding (kslab-logo.dim_512x512.png)",
+      "Square favicon, simplified and centered, transparent background (kslab-favicon.dim_32x32.png)",
+      "Square favicon, simplified and centered, transparent background (kslab-favicon.dim_16x16.png)",
+      "Apple touch icon, centered with padding (kslab-apple-touch-icon.dim_180x180.png)",
+      "Social preview image on a clean light background, logo centered and prominent (kslab-og-image.dim_1200x630.png)"
+    ],
     "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
   }
 }

@@ -1,35 +1,53 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-11T02:27:11.880Z",
+  "generatedAt": "2026-02-11T03:18:15.630Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 2,
-    "implemented": 2,
+    "total": 3,
+    "implemented": 3,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Update the single source of truth branding constants so the app name is exactly \"K's Lab repair and customization\" and the computed title uses that updated name.",
+        "summary": "Create resized logo asset set from the uploaded image \"Tech Repair Logo with Blue and Gray.png\" for use across the app (UI logo, favicon, and social preview), ensuring the logo is centered, not distorted, and has appropriate padding so it renders well at small sizes.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/lib/branding.ts"
+          "frontend/public/assets/generated/kslab-logo.dim_512x512.png",
+          "frontend/public/assets/generated/kslab-favicon.dim_32x32.png",
+          "frontend/public/assets/generated/kslab-favicon.dim_16x16.png",
+          "frontend/public/assets/generated/kslab-apple-touch-icon.dim_180x180.png",
+          "frontend/public/assets/generated/kslab-og-image.dim_1200x630.png"
         ],
         "matchedFiles": [
-          "frontend/src/lib/branding.ts"
+          "frontend/public/assets/generated/kslab-logo.dim_512x512.png",
+          "frontend/public/assets/generated/kslab-favicon.dim_32x32.png",
+          "frontend/public/assets/generated/kslab-favicon.dim_16x16.png",
+          "frontend/public/assets/generated/kslab-apple-touch-icon.dim_180x180.png",
+          "frontend/public/assets/generated/kslab-og-image.dim_1200x630.png"
         ]
       },
       {
         "id": "REQ-2",
-        "summary": "Replace all user-facing occurrences of the old app name (currently \"K's Lab Customization\") with \"K's Lab repair and customization\" across the marketing landing page hero heading, header brand text, footer copyright line, and the HTML document <title>.",
+        "summary": "Replace the current in-app logo usage (currently using \"/assets/generated/controller-logo.dim_512x512.png\") with the new generated logo asset everywhere it appears in the UI (at minimum: SiteHeader and LandingPage hero).",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/index.html",
-          "frontend/src/pages/LandingPage.tsx",
           "frontend/src/components/SiteHeader.tsx",
-          "frontend/src/components/SiteFooter.tsx"
+          "frontend/src/pages/LandingPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/SiteHeader.tsx",
+          "frontend/src/pages/LandingPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Update the HTML head to use the new logo assets for browser/favicon and add an Open Graph social preview image using the generated social preview asset.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/index.html"
         ],
         "matchedFiles": [
           "frontend/index.html"
@@ -43,7 +61,13 @@
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
     "frontend/index.html",
-    "frontend/src/lib/branding.ts",
+    "frontend/public/assets/generated/kslab-apple-touch-icon.dim_180x180.png",
+    "frontend/public/assets/generated/kslab-favicon.dim_16x16.png",
+    "frontend/public/assets/generated/kslab-favicon.dim_32x32.png",
+    "frontend/public/assets/generated/kslab-logo.dim_512x512.png",
+    "frontend/public/assets/generated/kslab-og-image.dim_1200x630.png",
+    "frontend/src/components/SiteHeader.tsx",
+    "frontend/src/pages/LandingPage.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

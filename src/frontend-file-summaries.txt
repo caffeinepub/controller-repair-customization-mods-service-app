@@ -1,12 +1,12 @@
 {
   "frontend/src/App.tsx": "Main application component with TanStack Router setup, theme provider, and route definitions for all pages including public and admin routes with proper guards.",
-  "frontend/src/pages/LandingPage.tsx": "Marketing landing page with hero section now displaying \"K's Lab Customization\" as the main heading, plus services, pricing, and process sections.",
+  "frontend/src/pages/LandingPage.tsx": "Marketing landing page with hero section displaying the new K's Lab logo at /assets/generated/kslab-logo.dim_512x512.png, plus services, pricing, and process sections.",
   "frontend/src/pages/ServiceRequestPage.tsx": "Service request intake form with customer details, controller platform dropdown (now showing only Xbox, PlayStation, and Other options), selectable priced services with live total calculation, additional description field, and optional client-side reference images; submits selected services and calculated total to backend.",
   "frontend/src/pages/ServiceRequestConfirmationPage.tsx": "Confirmation page displaying the generated request ID after successful submission with links to track order status.",
   "frontend/src/pages/StatusLookupPage.tsx": "Customer-facing status lookup page displaying request details including selected services list, calculated total estimate, current status timeline, and public notes with proper formatting.",
   "frontend/src/pages/admin/AdminRequestsPage.tsx": "Admin dashboard listing all service requests with status filtering and navigation to detailed request views.",
   "frontend/src/pages/admin/AdminRequestDetailPage.tsx": "Admin detail page showing full request information including selected services, displaying totalPriceEstimate or priceEstimate as current estimate, with status update controls and price estimate management (note: price updates are display-only pending backend support).",
-  "frontend/src/components/SiteHeader.tsx": "Global navigation header with logo and menu links, now displaying \"K's Lab Customization\" as the brand name in the header.",
+  "frontend/src/components/SiteHeader.tsx": "Global navigation header with logo and menu links, now displaying the new K's Lab logo at /assets/generated/kslab-logo.dim_512x512.png in both desktop and mobile header states.",
   "frontend/src/components/SiteFooter.tsx": "Site footer with service links, quick navigation, and copyright line now showing \"K's Lab Customization\" with required caffeine.ai attribution.",
   "frontend/src/components/BrandCard.tsx": "Reusable card component with consistent border, background, and shadow styling for content sections.",
   "frontend/src/components/FormField.tsx": "Reusable form field wrapper component providing consistent label, helper text, error message, and required indicator styling.",
@@ -25,5 +25,5 @@
   "frontend/src/lib/servicesCatalog.ts": "Shared service catalog defining all repair, customization, and performance services with exact prices, including helper functions for filtering by category, formatting prices, and calculating totals from selected services.",
   "frontend/src/components/ServiceSelectionList.tsx": "Reusable component rendering selectable services grouped by category with checkboxes, displaying exact prices or \"Price TBD\" for non-priced services like \"Controller cleaning\", and emitting selection changes to parent components.",
   "frontend/src/lib/branding.ts": "Single source of truth for app branding strings with APP_NAME now set to \"K's Lab repair and customization\", APP_SUBTITLE, and computed APP_TITLE.",
-  "frontend/index.html": "HTML entry point with updated document title reflecting \"K's Lab repair and customization — Controller Repair & Mods\"."
+  "frontend/index.html": "HTML entry point with updated favicon links (16x16, 32x32), apple-touch-icon (180x180), and Open Graph social preview image (1200x630) all pointing to the new K's Lab logo assets."
 }

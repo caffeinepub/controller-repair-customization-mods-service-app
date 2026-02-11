@@ -41,8 +41,8 @@ export default function SiteHeader() {
         <div className="flex h-16 items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
             <img 
-              src="/assets/generated/controller-logo.dim_512x512.png" 
-              alt="Logo" 
+              src="/assets/generated/kslab-logo.dim_512x512.png" 
+              alt="K's Lab Logo" 
               className="h-10 w-10"
             />
             <span className="font-bold text-lg hidden sm:inline">{APP_NAME}</span>

@@ -5,26 +5,42 @@
   "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Square brand logo with transparent background, centered with comfortable padding (kslab-logo.dim_512x512.png)\n- Square favicon, simplified and centered, transparent background (kslab-favicon.dim_32x32.png)\n- Square favicon, simplified and centered, transparent background (kslab-favicon.dim_16x16.png)\n- Apple touch icon, centered with padding (kslab-apple-touch-icon.dim_180x180.png)\n- Social preview image on a clean light background, logo centered and prominent (kslab-og-image.dim_1200x630.png)",
   "existing_features": [
     {
-      "id": "feature-update-the-single-source-of-truth-branding-constants-so-the-app-name-is-exactly-k-s-lab-repair-and-customization-and-the-computed-title-uses-that-updated-name",
-      "title": "Update the single source of truth branding constants so the app name is exactly \"K's Lab repair and customization\" and the computed title uses that updated name.",
+      "id": "feature-create-resized-logo-asset-set-from-the-uploaded-image-tech-repair-logo-with-blue-and-gray-png-for-use-across-the-app-ui-logo-favicon-and-social-preview-ensuring-the-logo-is-centered-not-distorted-and-has-appropriate-padding-so-it-renders-well-at-small-sizes",
+      "title": "Create resized logo asset set from the uploaded image \"Tech Repair Logo with Blue and Gray.png\" for use across the app (UI logo, favicon, and social preview), ensuring the logo is centered, not distorted, and has appropriate padding so it renders well at small sizes.",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     },
     {
-      "id": "feature-replace-all-user-facing-occurrences-of-the-old-app-name-currently-k-s-lab-customization-with-k-s-lab-repair-and-customization-across-the-marketing-landing-page-hero-heading-header-brand-text-footer-copyright-line-and-the-html-document-title",
-      "title": "Replace all user-facing occurrences of the old app name (currently \"K's Lab Customization\") with \"K's Lab repair and customization\" across the marketing landing page hero heading, header brand text, footer copyright line, and the HTML document <title>.",
+      "id": "feature-replace-the-current-in-app-logo-usage-currently-using-assets-generated-controller-logo-dim-512x512-png-with-the-new-generated-logo-asset-everywhere-it-appears-in-the-ui-at-minimum-siteheader-and-landingpage-hero",
+      "title": "Replace the current in-app logo usage (currently using \"/assets/generated/controller-logo.dim_512x512.png\") with the new generated logo asset everywhere it appears in the UI (at minimum: SiteHeader and LandingPage hero).",
       "reqIds": [
         "REQ-2"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-update-the-html-head-to-use-the-new-logo-assets-for-browser-favicon-and-add-an-open-graph-social-preview-image-using-the-generated-social-preview-asset",
+      "title": "Update the HTML head to use the new logo assets for browser/favicon and add an Open Graph social preview image using the generated social preview asset.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
     }
   ],
-  "new_feature_requests": [],
-  "projectName": "K's Lab repair and customization",
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Replace the app logo everywhere with the uploaded image and resize it to fit properly",
+      "reqIds": [],
+      "status": "in_progress"
+    }
+  ],
+  "projectName": "Replace app logo everywhere with uploaded image (resized)",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }
