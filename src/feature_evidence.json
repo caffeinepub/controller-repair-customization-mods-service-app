@@ -2,8 +2,8 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-create-resized-logo-asset-set-from-the-uploaded-image-tech-repair-logo-with-blue-and-gray-png-for-use-across-the-app-ui-logo-favicon-and-social-preview-ensuring-the-logo-is-centered-not-distorted-and-has-appropriate-padding-so-it-renders-well-at-small-sizes",
-      "featureTitle": "Create resized logo asset set from the uploaded image \"Tech Repair Logo with Blue and Gray.png\" for use across the app (UI logo, favicon, and social preview), ensuring the logo is centered, not distorted, and has appropriate padding so it renders well at small sizes.",
+      "featureId": "feature-generate-a-complete-logo-asset-set-from-the-uploaded-image-tech-repair-logo-with-blue-and-gray-jpg-and-add-the-resulting-images-as-static-assets-under-frontend-public-assets-generated-using-the-exact-filenames-specified-logo-favicons-apple-touch-icon-and-open-graph-image-ensure-the-logo-is-centered-not-distorted-and-has-enough-padding-to-remain-legible-at-small-sizes",
+      "featureTitle": "Generate a complete logo asset set from the uploaded image \"Tech Repair Logo with Blue and Gray.jpg\" and add the resulting images as static assets under frontend/public/assets/generated using the exact filenames specified (logo, favicons, apple touch icon, and Open Graph image). Ensure the logo is centered, not distorted, and has enough padding to remain legible at small sizes.",
       "files": [],
       "components": [
         "authorization@4.0.0",
@@ -15,45 +15,6 @@
       ],
       "testIds": [
         "REQ-1"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-replace-the-current-in-app-logo-usage-currently-using-assets-generated-controller-logo-dim-512x512-png-with-the-new-generated-logo-asset-everywhere-it-appears-in-the-ui-at-minimum-siteheader-and-landingpage-hero",
-      "featureTitle": "Replace the current in-app logo usage (currently using \"/assets/generated/controller-logo.dim_512x512.png\") with the new generated logo asset everywhere it appears in the UI (at minimum: SiteHeader and LandingPage hero).",
-      "files": [
-        "frontend/src/components/SiteHeader.tsx",
-        "frontend/src/pages/LandingPage.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-2"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-update-the-html-head-to-use-the-new-logo-assets-for-browser-favicon-and-add-an-open-graph-social-preview-image-using-the-generated-social-preview-asset",
-      "featureTitle": "Update the HTML head to use the new logo assets for browser/favicon and add an Open Graph social preview image using the generated social preview asset.",
-      "files": [
-        "frontend/index.html"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-3"
       ],
       "confidence": "high"
     }

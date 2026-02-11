@@ -1,78 +1,68 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Replace app logo everywhere with resized generated assets",
+  "title": "Apply uploaded logo across app (UI, favicon, OG image)",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Add a resized, centered, padded logo asset set (app logo, favicons, apple touch icon, social preview) generated from the uploaded image and stored as static public assets.",
+      "summary": "Add the required generated logo/favicons/apple-touch-icon/OG image set as static assets with exact filenames and proper padding/centering.",
       "acceptanceCriteria": [
-        "New logo image files exist under frontend/public/assets/generated with the filenames specified in imageRequirements.required.",
-        "All generated logo assets are square where applicable, visually centered, and do not appear stretched.",
-        "Small-size assets (16x16, 32x32) remain recognizable with simplified/clean edges (no accidental cropping)."
+        "The following files exist in frontend/public/assets/generated with the exact filenames: kslab-logo.dim_512x512.png, kslab-favicon.dim_32x32.png, kslab-favicon.dim_16x16.png, kslab-apple-touch-icon.dim_180x180.png, kslab-og-image.dim_1200x630.png",
+        "All generated assets keep the logo proportions (no stretching) and appear visually centered with comfortable padding",
+        "Favicon assets are simplified/clear enough to be recognizable at 16x16 and 32x32"
       ],
       "file_operations": [
         {
           "path": "frontend/public/assets/generated/kslab-logo.dim_512x512.png",
-          "operation": "create",
-          "description": "Create square brand logo (512x512) with transparent background; ensure the mark is centered with comfortable padding and not distorted."
+          "operation": "modify",
+          "description": "Generate/replace the square transparent brand logo derived from \"Tech Repair Logo with Blue and Gray.jpg\", ensuring centered composition, preserved aspect ratio (no distortion), and comfortable padding for small-size legibility."
         },
         {
           "path": "frontend/public/assets/generated/kslab-favicon.dim_32x32.png",
-          "operation": "create",
-          "description": "Create simplified square favicon (32x32) with transparent background; ensure the logo is centered, padded, and remains recognizable at small size."
+          "operation": "modify",
+          "description": "Generate/replace the 32x32 transparent favicon variant; simplify as needed so it remains recognizable at small sizes while staying centered with padding."
         },
         {
           "path": "frontend/public/assets/generated/kslab-favicon.dim_16x16.png",
-          "operation": "create",
-          "description": "Create simplified square favicon (16x16) with transparent background; ensure no accidental cropping and clean edges so it remains recognizable."
+          "operation": "modify",
+          "description": "Generate/replace the 16x16 transparent favicon variant; simplify as needed so it remains recognizable at very small sizes while staying centered with padding."
         },
         {
           "path": "frontend/public/assets/generated/kslab-apple-touch-icon.dim_180x180.png",
-          "operation": "create",
-          "description": "Create apple touch icon (180x180); ensure the logo is centered with padding suitable for iOS icon rendering."
+          "operation": "modify",
+          "description": "Generate/replace the 180x180 apple touch icon variant; keep the logo centered with padding and preserve proportions."
         },
         {
           "path": "frontend/public/assets/generated/kslab-og-image.dim_1200x630.png",
-          "operation": "create",
-          "description": "Create Open Graph social preview image (1200x630) on a clean light background with the logo centered and prominent."
+          "operation": "modify",
+          "description": "Generate/replace the 1200x630 social preview image with a clean light background and the logo centered and prominent (no distortion)."
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Replace all in-app UI logo references (header + landing hero at minimum) with the new generated brand logo asset.",
+      "summary": "Wire the generated logo assets into the header, landing hero, and HTML head (favicon, apple-touch-icon, og:image), removing any legacy logo references.",
       "acceptanceCriteria": [
-        "Header logo displays the new logo on desktop and mobile header states.",
-        "Landing page hero logo displays the new logo.",
-        "No remaining references to \"/assets/generated/controller-logo.dim_512x512.png\" are used for the brand logo in the header/hero after the update."
+        "Site header displays the new logo image without layout breakage on desktop and mobile",
+        "Landing page hero displays the new logo image without distortion",
+        "frontend/index.html contains link tags for 16x16 and 32x32 favicon and apple touch icon, and meta tags for og:image pointing to the generated assets",
+        "No other legacy logo assets remain referenced in the UI or HTML head"
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/SiteHeader.tsx",
           "operation": "modify",
-          "description": "Update the header brand <img> to use the new logo at frontend/public/assets/generated/kslab-logo.dim_512x512.png and ensure it renders correctly in both desktop and mobile header states."
+          "description": "Ensure the header logo uses frontend/public/assets/generated/kslab-logo.dim_512x512.png and add non-distorting rendering (e.g., use object-fit containment and stable sizing) so the image stays centered and does not stretch across breakpoints."
         },
         {
           "path": "frontend/src/pages/LandingPage.tsx",
           "operation": "modify",
-          "description": "Update the landing hero logo <img> to use the new logo at frontend/public/assets/generated/kslab-logo.dim_512x512.png; keep existing sizing behavior while ensuring the logo is not distorted."
-        }
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "summary": "Update the HTML head to use the new favicon, apple touch icon, and Open Graph social preview image assets.",
-      "acceptanceCriteria": [
-        "frontend/index.html includes favicon link tags pointing to the generated 16x16 and 32x32 assets.",
-        "frontend/index.html includes an apple-touch-icon link pointing to the generated 180x180 asset.",
-        "frontend/index.html includes Open Graph image metadata referencing the generated 1200x630 asset."
-      ],
-      "file_operations": [
+          "description": "Ensure the landing page hero logo uses frontend/public/assets/generated/kslab-logo.dim_512x512.png and enforce non-distorting rendering (e.g., object-fit containment) so the logo remains crisp and centered on mobile/desktop."
+        },
         {
           "path": "frontend/index.html",
           "operation": "modify",
-          "description": "Add/replace head tags to reference frontend/public/assets/generated/kslab-favicon.dim_16x16.png and frontend/public/assets/generated/kslab-favicon.dim_32x32.png (favicon), frontend/public/assets/generated/kslab-apple-touch-icon.dim_180x180.png (apple-touch-icon), and frontend/public/assets/generated/kslab-og-image.dim_1200x630.png (Open Graph image metadata)."
+          "description": "Verify/update the HTML head to reference the generated static assets only: frontend/public/assets/generated/kslab-favicon.dim_32x32.png, frontend/public/assets/generated/kslab-favicon.dim_16x16.png, frontend/public/assets/generated/kslab-apple-touch-icon.dim_180x180.png, and frontend/public/assets/generated/kslab-og-image.dim_1200x630.png; remove/replace any legacy icon/OG image references."
         }
       ]
     }

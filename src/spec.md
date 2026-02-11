@@ -1,11 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Replace the app’s current logo everywhere with a resized asset set generated from the uploaded “Tech Repair Logo with Blue and Gray.png”, including proper favicon, Apple touch icon, and social preview support.
+**Goal:** Replace all app branding imagery with an asset set generated from the uploaded “Tech Repair Logo with Blue and Gray.jpg”, including UI logo usage and HTML head metadata (favicon, apple touch icon, OG image).
 
 **Planned changes:**
-- Generate a complete set of resized logo assets (UI logo, favicons, apple touch icon, Open Graph image) from the uploaded logo, ensuring centered placement, no distortion, and padding for small-size clarity.
-- Update in-app logo references to use the new generated brand logo asset (at minimum in SiteHeader and LandingPage hero), removing usage of `/assets/generated/controller-logo.dim_512x512.png` for branding.
-- Update `frontend/index.html` head tags to reference the new favicon assets, apple-touch-icon, and Open Graph social preview image.
+- Generate a complete logo asset set from the uploaded logo and add it under `frontend/public/assets/generated` using the exact required filenames (logo, favicons, apple touch icon, OG image), ensuring centered composition, no distortion, and adequate padding for legibility at small sizes.
+- Update the site header logo and landing page hero logo to use `/assets/generated/kslab-logo.dim_512x512.png`.
+- Update `frontend/index.html` to reference the generated favicon(s), apple-touch-icon, and `og:image`, and remove any remaining references to legacy logo assets.
 
-**User-visible outcome:** The app shows the new “K’s Lab tech repair” logo in the header and landing hero, and browsers/social shares use the updated favicon and preview image.
+**User-visible outcome:** The app displays the new uploaded logo consistently across the header and landing hero, and browser/tab icons plus social link previews use the new favicon/apple-touch/OG assets.

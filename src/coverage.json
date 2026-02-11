@@ -1,18 +1,18 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-11T03:18:15.630Z",
+  "generatedAt": "2026-02-11T03:32:19.839Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 3,
-    "implemented": 3,
+    "total": 2,
+    "implemented": 1,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Create resized logo asset set from the uploaded image \"Tech Repair Logo with Blue and Gray.png\" for use across the app (UI logo, favicon, and social preview), ensuring the logo is centered, not distorted, and has appropriate padding so it renders well at small sizes.",
+        "summary": "Generate a complete logo asset set from the uploaded image \"Tech Repair Logo with Blue and Gray.jpg\" and add the resulting images as static assets under frontend/public/assets/generated using the exact filenames specified (logo, favicons, apple touch icon, and Open Graph image). Ensure the logo is centered, not distorted, and has enough padding to remain legible at small sizes.",
         "status": "implemented",
         "plannedFiles": [
           "frontend/public/assets/generated/kslab-logo.dim_512x512.png",
@@ -31,43 +31,26 @@
       },
       {
         "id": "REQ-2",
-        "summary": "Replace the current in-app logo usage (currently using \"/assets/generated/controller-logo.dim_512x512.png\") with the new generated logo asset everywhere it appears in the UI (at minimum: SiteHeader and LandingPage hero).",
-        "status": "implemented",
+        "summary": "Use the generated logo assets throughout the UI and HTML head: ensure the header logo and landing page hero logo use /assets/generated/kslab-logo.dim_512x512.png, and ensure frontend/index.html references the generated favicon, apple-touch-icon, and og:image assets.",
+        "status": "missing",
         "plannedFiles": [
           "frontend/src/components/SiteHeader.tsx",
-          "frontend/src/pages/LandingPage.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/SiteHeader.tsx",
-          "frontend/src/pages/LandingPage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-3",
-        "summary": "Update the HTML head to use the new logo assets for browser/favicon and add an Open Graph social preview image using the generated social preview asset.",
-        "status": "implemented",
-        "plannedFiles": [
+          "frontend/src/pages/LandingPage.tsx",
           "frontend/index.html"
         ],
-        "matchedFiles": [
-          "frontend/index.html"
-        ]
+        "matchedFiles": []
       }
     ]
   },
   "changedFiles": [
     "build-request.json",
     "feature_evidence.json",
-    "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/index.html",
     "frontend/public/assets/generated/kslab-apple-touch-icon.dim_180x180.png",
     "frontend/public/assets/generated/kslab-favicon.dim_16x16.png",
     "frontend/public/assets/generated/kslab-favicon.dim_32x32.png",
     "frontend/public/assets/generated/kslab-logo.dim_512x512.png",
     "frontend/public/assets/generated/kslab-og-image.dim_1200x630.png",
-    "frontend/src/components/SiteHeader.tsx",
-    "frontend/src/pages/LandingPage.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

@@ -1,33 +1,19 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "New project",
+  "summary": "Project includes deploying an update that uses a provided logo asset.",
   "architectural_notes": [],
-  "known_issues": [],
+  "known_issues": [
+    "Logo file not provided/attached yet; need the user to upload the logo asset before it can be applied."
+  ],
   "isFixRequest": false,
   "imageRequirements": "## Required Images\n- Square brand logo with transparent background, centered with comfortable padding (kslab-logo.dim_512x512.png)\n- Square favicon, simplified and centered, transparent background (kslab-favicon.dim_32x32.png)\n- Square favicon, simplified and centered, transparent background (kslab-favicon.dim_16x16.png)\n- Apple touch icon, centered with padding (kslab-apple-touch-icon.dim_180x180.png)\n- Social preview image on a clean light background, logo centered and prominent (kslab-og-image.dim_1200x630.png)",
   "existing_features": [
     {
-      "id": "feature-create-resized-logo-asset-set-from-the-uploaded-image-tech-repair-logo-with-blue-and-gray-png-for-use-across-the-app-ui-logo-favicon-and-social-preview-ensuring-the-logo-is-centered-not-distorted-and-has-appropriate-padding-so-it-renders-well-at-small-sizes",
-      "title": "Create resized logo asset set from the uploaded image \"Tech Repair Logo with Blue and Gray.png\" for use across the app (UI logo, favicon, and social preview), ensuring the logo is centered, not distorted, and has appropriate padding so it renders well at small sizes.",
+      "id": "feature-generate-a-complete-logo-asset-set-from-the-uploaded-image-tech-repair-logo-with-blue-and-gray-jpg-and-add-the-resulting-images-as-static-assets-under-frontend-public-assets-generated-using-the-exact-filenames-specified-logo-favicons-apple-touch-icon-and-open-graph-image-ensure-the-logo-is-centered-not-distorted-and-has-enough-padding-to-remain-legible-at-small-sizes",
+      "title": "Generate a complete logo asset set from the uploaded image \"Tech Repair Logo with Blue and Gray.jpg\" and add the resulting images as static assets under frontend/public/assets/generated using the exact filenames specified (logo, favicons, apple touch icon, and Open Graph image). Ensure the logo is centered, not distorted, and has enough padding to remain legible at small sizes.",
       "reqIds": [
         "REQ-1"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-replace-the-current-in-app-logo-usage-currently-using-assets-generated-controller-logo-dim-512x512-png-with-the-new-generated-logo-asset-everywhere-it-appears-in-the-ui-at-minimum-siteheader-and-landingpage-hero",
-      "title": "Replace the current in-app logo usage (currently using \"/assets/generated/controller-logo.dim_512x512.png\") with the new generated logo asset everywhere it appears in the UI (at minimum: SiteHeader and LandingPage hero).",
-      "reqIds": [
-        "REQ-2"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-update-the-html-head-to-use-the-new-logo-assets-for-browser-favicon-and-add-an-open-graph-social-preview-image-using-the-generated-social-preview-asset",
-      "title": "Update the HTML head to use the new logo assets for browser/favicon and add an Open Graph social preview image using the generated social preview asset.",
-      "reqIds": [
-        "REQ-3"
       ],
       "version": 1
     }
@@ -35,12 +21,20 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Replace the app logo everywhere with the uploaded image and resize it to fit properly",
+      "summary": "Update the product/site to use the provided logo asset (deploy the new logo to production).",
       "reqIds": [],
-      "status": "in_progress"
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Use the generated logo assets throughout the UI and HTML head: ensure the header logo and landing page hero logo use /assets/generated/kslab-logo.dim_512x512.png, and ensure frontend/index.html references the generated favicon, apple-touch-icon, and og:image assets.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
     }
   ],
-  "projectName": "Replace app logo everywhere with uploaded image (resized)",
+  "projectName": "Apply uploaded logo across app (UI, favicon, OG image)",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

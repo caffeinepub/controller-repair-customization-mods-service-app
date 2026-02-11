@@ -1,75 +1,56 @@
 {
   "kind": "build_request",
-  "title": "Replace app logo everywhere with uploaded image (resized)",
+  "title": "Apply uploaded logo across app (UI, favicon, OG image)",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Create resized logo asset set from the uploaded image \"Tech Repair Logo with Blue and Gray.png\" for use across the app (UI logo, favicon, and social preview), ensuring the logo is centered, not distorted, and has appropriate padding so it renders well at small sizes.",
+      "text": "Generate a complete logo asset set from the uploaded image \"Tech Repair Logo with Blue and Gray.jpg\" and add the resulting images as static assets under frontend/public/assets/generated using the exact filenames specified (logo, favicons, apple touch icon, and Open Graph image). Ensure the logo is centered, not distorted, and has enough padding to remain legible at small sizes.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-1"
         ],
         "quotes": [
-          "I want to change the logo for the app",
-          "yu should resize it for the app",
-          "1 yes 2 yes and 3 yes"
+          "I want to use this logo"
         ]
       },
       "acceptanceCriteria": [
-        "New logo image files exist under frontend/public/assets/generated with the filenames specified in imageRequirements.required.",
-        "All generated logo assets are square where applicable, visually centered, and do not appear stretched.",
-        "Small-size assets (16x16, 32x32) remain recognizable with simplified/clean edges (no accidental cropping)."
+        "The following files exist in frontend/public/assets/generated with the exact filenames: kslab-logo.dim_512x512.png, kslab-favicon.dim_32x32.png, kslab-favicon.dim_16x16.png, kslab-apple-touch-icon.dim_180x180.png, kslab-og-image.dim_1200x630.png",
+        "All generated assets keep the logo proportions (no stretching) and appear visually centered with comfortable padding",
+        "Favicon assets are simplified/clear enough to be recognizable at 16x16 and 32x32"
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Replace the current in-app logo usage (currently using \"/assets/generated/controller-logo.dim_512x512.png\") with the new generated logo asset everywhere it appears in the UI (at minimum: SiteHeader and LandingPage hero).",
+      "text": "Use the generated logo assets throughout the UI and HTML head: ensure the header logo and landing page hero logo use /assets/generated/kslab-logo.dim_512x512.png, and ensure frontend/index.html references the generated favicon, apple-touch-icon, and og:image assets.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-1"
         ],
         "quotes": [
-          "I want to change the logo for the app",
-          "1 yes 2 yes and 3 yes"
+          "use this logo"
         ]
       },
       "acceptanceCriteria": [
-        "Header logo displays the new logo on desktop and mobile header states.",
-        "Landing page hero logo displays the new logo.",
-        "No remaining references to \"/assets/generated/controller-logo.dim_512x512.png\" are used for the brand logo in the header/hero after the update."
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "text": "Update the HTML head to use the new logo assets for browser/favicon and add an Open Graph social preview image using the generated social preview asset.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "1 yes 2 yes and 3 yes"
-        ]
-      },
-      "acceptanceCriteria": [
-        "frontend/index.html includes favicon link tags pointing to the generated 16x16 and 32x32 assets.",
-        "frontend/index.html includes an apple-touch-icon link pointing to the generated 180x180 asset.",
-        "frontend/index.html includes Open Graph image metadata referencing the generated 1200x630 asset."
+        "Site header displays the new logo image without layout breakage on desktop and mobile",
+        "Landing page hero displays the new logo image without distortion",
+        "frontend/index.html contains link tags for 16x16 and 32x32 favicon and apple touch icon, and meta tags for og:image pointing to the generated assets",
+        "No other legacy logo assets remain referenced in the UI or HTML head"
       ]
     }
   ],
   "constraints": [
-    "Do not edit any files under frontend/src/components/ui or any paths listed in frontend.immutablePaths.",
-    "Keep all backend logic unchanged (logo update is frontend/static-asset only).",
-    "Store generated images as static assets under frontend/public/assets/generated (do not serve images through the backend)."
+    "Do not modify files under frontend/src/components/ui (read-only).",
+    "Do not modify immutable hook files: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx.",
+    "Keep all assets served statically from frontend/public/assets/generated; do not route image loading through the backend.",
+    "No backend (Motoko) changes are required for this request."
   ],
   "nonGoals": [
-    "Changing the app name, subtitle, or other copy.",
-    "Redesigning the app UI beyond what is necessary to display the updated logo.",
-    "Adding new authentication methods or any backend schema/state changes."
+    "Changing app name, subtitle, or other branding text beyond updating logo imagery",
+    "Implementing new pages, features, or authentication changes",
+    "Altering service-request flow or backend data models"
   ],
   "imageRequirements": {
     "required": [
