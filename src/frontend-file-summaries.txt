@@ -7,7 +7,7 @@
   "frontend/src/pages/admin/AdminRequestsPage.tsx": "Admin dashboard listing all service requests with status filtering and navigation to detailed request views.",
   "frontend/src/pages/admin/AdminRequestDetailPage.tsx": "Admin detail page showing full request information including selected services, displaying totalPriceEstimate or priceEstimate as current estimate, with status update controls and price estimate management (note: price updates are display-only pending backend support).",
   "frontend/src/components/SiteHeader.tsx": "Global navigation header with logo and menu links, now displaying the new K's Lab logo at /assets/generated/kslab-logo.dim_512x512.png in both desktop and mobile header states.",
-  "frontend/src/components/SiteFooter.tsx": "Site footer with service links, quick navigation, and copyright line now showing \"K's Lab Customization\" with required caffeine.ai attribution.",
+  "frontend/src/components/SiteFooter.tsx": "Site footer with service links, quick navigation, support section now displaying clickable phone number (1-242-821-0504) as a tel: link, and copyright line with K's Lab Customization branding and required caffeine.ai attribution.",
   "frontend/src/components/BrandCard.tsx": "Reusable card component with consistent border, background, and shadow styling for content sections.",
   "frontend/src/components/FormField.tsx": "Reusable form field wrapper component providing consistent label, helper text, error message, and required indicator styling.",
   "frontend/src/components/RequestStatusTimeline.tsx": "Timeline component displaying status history with timestamps, highlighting current status with visual indicators.",

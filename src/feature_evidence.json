@@ -2,9 +2,11 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-generate-a-complete-logo-asset-set-from-the-uploaded-image-tech-repair-logo-with-blue-and-gray-jpg-and-add-the-resulting-images-as-static-assets-under-frontend-public-assets-generated-using-the-exact-filenames-specified-logo-favicons-apple-touch-icon-and-open-graph-image-ensure-the-logo-is-centered-not-distorted-and-has-enough-padding-to-remain-legible-at-small-sizes",
-      "featureTitle": "Generate a complete logo asset set from the uploaded image \"Tech Repair Logo with Blue and Gray.jpg\" and add the resulting images as static assets under frontend/public/assets/generated using the exact filenames specified (logo, favicons, apple touch icon, and Open Graph image). Ensure the logo is centered, not distorted, and has enough padding to remain legible at small sizes.",
-      "files": [],
+      "featureId": "feature-update-the-site-s-support-contact-us-area-in-the-footer-to-display-the-phone-number-1-242-821-0504-as-the-contact-method-formatted-as-a-clickable-phone-link-tel",
+      "featureTitle": "Update the site’s “Support” / “Contact Us” area in the footer to display the phone number \"1-242-821-0504\" as the contact method, formatted as a clickable phone link (tel:).",
+      "files": [
+        "frontend/src/components/SiteFooter.tsx"
+      ],
       "components": [
         "authorization@4.0.0",
         "core-infrastructure@1.0.2",

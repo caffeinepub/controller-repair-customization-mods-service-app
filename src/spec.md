@@ -1,11 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Replace all app branding imagery with an asset set generated from the uploaded “Tech Repair Logo with Blue and Gray.jpg”, including UI logo usage and HTML head metadata (favicon, apple touch icon, OG image).
+**Goal:** Display the business phone number in the footer “Support / Contact Us” section as a clickable phone link.
 
 **Planned changes:**
-- Generate a complete logo asset set from the uploaded logo and add it under `frontend/public/assets/generated` using the exact required filenames (logo, favicons, apple touch icon, OG image), ensuring centered composition, no distortion, and adequate padding for legibility at small sizes.
-- Update the site header logo and landing page hero logo to use `/assets/generated/kslab-logo.dim_512x512.png`.
-- Update `frontend/index.html` to reference the generated favicon(s), apple-touch-icon, and `og:image`, and remove any remaining references to legacy logo assets.
+- Update the footer Support/Contact Us content (frontend/src/components/SiteFooter.tsx) to show the phone number **1-242-821-0504**.
+- Render the phone number as a clickable `tel:` link (e.g., `href="tel:+12428210504"`) and ensure it remains readable in both light and dark themes.
 
-**User-visible outcome:** The app displays the new uploaded logo consistently across the header and landing hero, and browser/tab icons plus social link previews use the new favicon/apple-touch/OG assets.
+**User-visible outcome:** Users can see **1-242-821-0504** in the footer Support/Contact Us area and tap/click it to initiate a phone call.

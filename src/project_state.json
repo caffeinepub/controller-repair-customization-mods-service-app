@@ -1,17 +1,18 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "Project includes deploying an update that uses a provided logo asset.",
-  "architectural_notes": [],
+  "summary": "Add contact information (phone number) to the site’s Support & Contact Us section and update the site logo (pending receipt of logo image).",
+  "architectural_notes": [
+    "Support & Contact Us section should display a phone contact number; logo asset must be provided before updating branding."
+  ],
   "known_issues": [
-    "Logo file not provided/attached yet; need the user to upload the logo asset before it can be applied."
+    "Logo image not yet provided; cannot complete logo update until asset is received."
   ],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Square brand logo with transparent background, centered with comfortable padding (kslab-logo.dim_512x512.png)\n- Square favicon, simplified and centered, transparent background (kslab-favicon.dim_32x32.png)\n- Square favicon, simplified and centered, transparent background (kslab-favicon.dim_16x16.png)\n- Apple touch icon, centered with padding (kslab-apple-touch-icon.dim_180x180.png)\n- Social preview image on a clean light background, logo centered and prominent (kslab-og-image.dim_1200x630.png)",
   "existing_features": [
     {
-      "id": "feature-generate-a-complete-logo-asset-set-from-the-uploaded-image-tech-repair-logo-with-blue-and-gray-jpg-and-add-the-resulting-images-as-static-assets-under-frontend-public-assets-generated-using-the-exact-filenames-specified-logo-favicons-apple-touch-icon-and-open-graph-image-ensure-the-logo-is-centered-not-distorted-and-has-enough-padding-to-remain-legible-at-small-sizes",
-      "title": "Generate a complete logo asset set from the uploaded image \"Tech Repair Logo with Blue and Gray.jpg\" and add the resulting images as static assets under frontend/public/assets/generated using the exact filenames specified (logo, favicons, apple touch icon, and Open Graph image). Ensure the logo is centered, not distorted, and has enough padding to remain legible at small sizes.",
+      "id": "feature-update-the-site-s-support-contact-us-area-in-the-footer-to-display-the-phone-number-1-242-821-0504-as-the-contact-method-formatted-as-a-clickable-phone-link-tel",
+      "title": "Update the site’s “Support” / “Contact Us” area in the footer to display the phone number \"1-242-821-0504\" as the contact method, formatted as a clickable phone link (tel:).",
       "reqIds": [
         "REQ-1"
       ],
@@ -21,20 +22,18 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Update the product/site to use the provided logo asset (deploy the new logo to production).",
+      "summary": "Add phone number (1-242-821-0504) to the Support & Contact Us section",
       "reqIds": [],
       "status": "pending"
     },
     {
-      "id": "AR-3",
-      "summary": "Use the generated logo assets throughout the UI and HTML head: ensure the header logo and landing page hero logo use /assets/generated/kslab-logo.dim_512x512.png, and ensure frontend/index.html references the generated favicon, apple-touch-icon, and og:image assets.",
-      "reqIds": [
-        "REQ-2"
-      ],
-      "status": "pending"
+      "id": "AR-2",
+      "summary": "Update site to use user-provided logo image (awaiting logo asset)",
+      "reqIds": [],
+      "status": "blocked"
     }
   ],
-  "projectName": "Apply uploaded logo across app (UI, favicon, OG image)",
+  "projectName": "Add phone contact to Support & Contact Us section",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

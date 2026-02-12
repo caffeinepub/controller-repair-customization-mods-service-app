@@ -1,65 +1,39 @@
 {
   "kind": "build_request",
-  "title": "Apply uploaded logo across app (UI, favicon, OG image)",
+  "title": "Add phone contact to Support & Contact Us section",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Generate a complete logo asset set from the uploaded image \"Tech Repair Logo with Blue and Gray.jpg\" and add the resulting images as static assets under frontend/public/assets/generated using the exact filenames specified (logo, favicons, apple touch icon, and Open Graph image). Ensure the logo is centered, not distorted, and has enough padding to remain legible at small sizes.",
+      "text": "Update the site’s “Support” / “Contact Us” area in the footer to display the phone number \"1-242-821-0504\" as the contact method, formatted as a clickable phone link (tel:).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "recent-messages"
         ],
         "quotes": [
-          "I want to use this logo"
+          "in the section where it says support and contact us put my number 1 242 821 0504",
+          "start"
         ]
       },
       "acceptanceCriteria": [
-        "The following files exist in frontend/public/assets/generated with the exact filenames: kslab-logo.dim_512x512.png, kslab-favicon.dim_32x32.png, kslab-favicon.dim_16x16.png, kslab-apple-touch-icon.dim_180x180.png, kslab-og-image.dim_1200x630.png",
-        "All generated assets keep the logo proportions (no stretching) and appear visually centered with comfortable padding",
-        "Favicon assets are simplified/clear enough to be recognizable at 16x16 and 32x32"
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "text": "Use the generated logo assets throughout the UI and HTML head: ensure the header logo and landing page hero logo use /assets/generated/kslab-logo.dim_512x512.png, and ensure frontend/index.html references the generated favicon, apple-touch-icon, and og:image assets.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "use this logo"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Site header displays the new logo image without layout breakage on desktop and mobile",
-        "Landing page hero displays the new logo image without distortion",
-        "frontend/index.html contains link tags for 16x16 and 32x32 favicon and apple touch icon, and meta tags for og:image pointing to the generated assets",
-        "No other legacy logo assets remain referenced in the UI or HTML head"
+        "In the footer Support section (frontend/src/components/SiteFooter.tsx), the phone number 1-242-821-0504 is visible to users.",
+        "The phone number is rendered as a clickable link using href=\"tel:+12428210504\" (or equivalent) and is readable in both light and dark themes.",
+        "No other footer sections (Services, Quick Links, Connect) regress visually or functionally."
       ]
     }
   ],
   "constraints": [
-    "Do not modify files under frontend/src/components/ui (read-only).",
-    "Do not modify immutable hook files: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx.",
-    "Keep all assets served statically from frontend/public/assets/generated; do not route image loading through the backend.",
-    "No backend (Motoko) changes are required for this request."
+    "Frontend files under frontend/src/components/ui and other paths listed in frontend.immutablePaths must not be edited.",
+    "Do not introduce any external services (e.g., SMS, email providers) for contact functionality."
   ],
   "nonGoals": [
-    "Changing app name, subtitle, or other branding text beyond updating logo imagery",
-    "Implementing new pages, features, or authentication changes",
-    "Altering service-request flow or backend data models"
+    "Do not build a contact form, live chat, or SMS/WhatsApp messaging workflow.",
+    "Do not change backend canister logic or data models.",
+    "Do not implement the logo update until the user provides the logo image asset."
   ],
   "imageRequirements": {
-    "required": [
-      "Square brand logo with transparent background, centered with comfortable padding (kslab-logo.dim_512x512.png)",
-      "Square favicon, simplified and centered, transparent background (kslab-favicon.dim_32x32.png)",
-      "Square favicon, simplified and centered, transparent background (kslab-favicon.dim_16x16.png)",
-      "Apple touch icon, centered with padding (kslab-apple-touch-icon.dim_180x180.png)",
-      "Social preview image on a clean light background, logo centered and prominent (kslab-og-image.dim_1200x630.png)"
-    ],
+    "required": [],
     "edits": []
   },
   "userProfileUpdate": {

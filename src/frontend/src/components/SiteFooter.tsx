@@ -42,7 +42,14 @@ export default function SiteFooter() {
             <h3 className="font-bold mb-3">Support</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>FAQ</li>
-              <li>Contact Us</li>
+              <li>
+                <a 
+                  href="tel:+12428210504" 
+                  className="hover:text-primary transition-colors"
+                >
+                  1-242-821-0504
+                </a>
+              </li>
               <li>Warranty Info</li>
             </ul>
           </div>

@@ -1,68 +1,21 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Apply uploaded logo across app (UI, favicon, OG image)",
+  "title": "Add clickable phone contact link to footer Support section",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Add the required generated logo/favicons/apple-touch-icon/OG image set as static assets with exact filenames and proper padding/centering.",
+      "summary": "Update the footer Support/Contact Us area to show the phone number as a clickable tel: link.",
       "acceptanceCriteria": [
-        "The following files exist in frontend/public/assets/generated with the exact filenames: kslab-logo.dim_512x512.png, kslab-favicon.dim_32x32.png, kslab-favicon.dim_16x16.png, kslab-apple-touch-icon.dim_180x180.png, kslab-og-image.dim_1200x630.png",
-        "All generated assets keep the logo proportions (no stretching) and appear visually centered with comfortable padding",
-        "Favicon assets are simplified/clear enough to be recognizable at 16x16 and 32x32"
+        "In the footer Support section (frontend/src/components/SiteFooter.tsx), the phone number 1-242-821-0504 is visible to users.",
+        "The phone number is rendered as a clickable link using href=\"tel:+12428210504\" (or equivalent) and is readable in both light and dark themes.",
+        "No other footer sections (Services, Quick Links, Connect) regress visually or functionally."
       ],
       "file_operations": [
         {
-          "path": "frontend/public/assets/generated/kslab-logo.dim_512x512.png",
+          "path": "frontend/src/components/SiteFooter.tsx",
           "operation": "modify",
-          "description": "Generate/replace the square transparent brand logo derived from \"Tech Repair Logo with Blue and Gray.jpg\", ensuring centered composition, preserved aspect ratio (no distortion), and comfortable padding for small-size legibility."
-        },
-        {
-          "path": "frontend/public/assets/generated/kslab-favicon.dim_32x32.png",
-          "operation": "modify",
-          "description": "Generate/replace the 32x32 transparent favicon variant; simplify as needed so it remains recognizable at small sizes while staying centered with padding."
-        },
-        {
-          "path": "frontend/public/assets/generated/kslab-favicon.dim_16x16.png",
-          "operation": "modify",
-          "description": "Generate/replace the 16x16 transparent favicon variant; simplify as needed so it remains recognizable at very small sizes while staying centered with padding."
-        },
-        {
-          "path": "frontend/public/assets/generated/kslab-apple-touch-icon.dim_180x180.png",
-          "operation": "modify",
-          "description": "Generate/replace the 180x180 apple touch icon variant; keep the logo centered with padding and preserve proportions."
-        },
-        {
-          "path": "frontend/public/assets/generated/kslab-og-image.dim_1200x630.png",
-          "operation": "modify",
-          "description": "Generate/replace the 1200x630 social preview image with a clean light background and the logo centered and prominent (no distortion)."
-        }
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "summary": "Wire the generated logo assets into the header, landing hero, and HTML head (favicon, apple-touch-icon, og:image), removing any legacy logo references.",
-      "acceptanceCriteria": [
-        "Site header displays the new logo image without layout breakage on desktop and mobile",
-        "Landing page hero displays the new logo image without distortion",
-        "frontend/index.html contains link tags for 16x16 and 32x32 favicon and apple touch icon, and meta tags for og:image pointing to the generated assets",
-        "No other legacy logo assets remain referenced in the UI or HTML head"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/SiteHeader.tsx",
-          "operation": "modify",
-          "description": "Ensure the header logo uses frontend/public/assets/generated/kslab-logo.dim_512x512.png and add non-distorting rendering (e.g., use object-fit containment and stable sizing) so the image stays centered and does not stretch across breakpoints."
-        },
-        {
-          "path": "frontend/src/pages/LandingPage.tsx",
-          "operation": "modify",
-          "description": "Ensure the landing page hero logo uses frontend/public/assets/generated/kslab-logo.dim_512x512.png and enforce non-distorting rendering (e.g., object-fit containment) so the logo remains crisp and centered on mobile/desktop."
-        },
-        {
-          "path": "frontend/index.html",
-          "operation": "modify",
-          "description": "Verify/update the HTML head to reference the generated static assets only: frontend/public/assets/generated/kslab-favicon.dim_32x32.png, frontend/public/assets/generated/kslab-favicon.dim_16x16.png, frontend/public/assets/generated/kslab-apple-touch-icon.dim_180x180.png, and frontend/public/assets/generated/kslab-og-image.dim_1200x630.png; remove/replace any legacy icon/OG image references."
+          "description": "Replace the existing non-interactive \"Contact Us\" support item with a visible phone number \"1-242-821-0504\" rendered as an anchor using a tel: href (use the E.164 form +12428210504 in the href). Apply existing footer link/typography classes so it remains readable in light/dark themes and does not alter layout/behavior of the other footer columns."
         }
       ]
     }
